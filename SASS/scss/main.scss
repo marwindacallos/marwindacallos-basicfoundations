@@ -1,0 +1,33 @@
+@import "./resets";
+@import "./variables";
+
+// FUNCTION
+@function weight($weight-name) {
+ @return map-get($font-weights, $weight-name);
+}
+
+body {
+ background: $primary-color;
+ color: $text-color;
+ font-weight: map-get($font-weights, bold);
+}
+
+// NESTING
+.main {
+ width: 80%;
+ margin: 0 auto;
+
+ p {
+  font-weight: map-get($font-weights, bold);
+ }
+ &__paragraph {
+  font-weight: map-get($font-weights, bold);
+ }
+ #{&}__paragraph {
+  font-weight: map-get($font-weights, bold);
+
+  &:hover {
+   color: pink;
+  }
+ }
+}

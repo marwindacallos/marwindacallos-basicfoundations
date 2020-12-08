@@ -1,0 +1,34 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #232323;
+  color: #fff;
+  font-weight: 700;
+}
+
+.main {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.main p {
+  font-weight: 700;
+}
+
+.main__paragraph {
+  font-weight: 700;
+}
+
+.main .main__paragraph {
+  font-weight: 700;
+}
+
+.main .main__paragraph:hover {
+  color: pink;
+}
+/*# sourceMappingURL=main.css.map */
