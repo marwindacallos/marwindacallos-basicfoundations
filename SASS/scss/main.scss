@@ -12,6 +12,42 @@ body {
  font-weight: map-get($font-weights, bold);
 }
 
+// MIXINS
+
+@mixin flexCenter($direction) {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: $direction;
+}
+
+@mixin theme($light-theme: true) {
+ @if l$light-theme {
+  background: lighten($primary-color, 100%);
+  color: darken($text-color, 100%);
+ }
+}
+
+.light {
+ @include theme($light-theme: false);
+}
+
+@mixin mobile {
+ @media (max-width: $mobile) {
+  @content;
+ }
+}
+
+@include mobile {
+ flex-direction: column;
+}
+
+.main {
+ @include flexCenter(row);
+ width: 80%;
+ margin: 0 auto;
+}
+
 // NESTING
 .main {
  width: 80%;
@@ -23,11 +59,18 @@ body {
  &__paragraph {
   font-weight: map-get($font-weights, bold);
  }
- #{&}__paragraph {
-  font-weight: map-get($font-weights, bold);
+ #{&}__paragraph1 {
+  font-weight: weight(bold);
 
   &:hover {
    color: pink;
+  }
+  #{&}__paragraph2 {
+   @extend .main__paragraph1;
+
+   &:hover {
+    color: $accent-color;
+   }
   }
  }
 }
