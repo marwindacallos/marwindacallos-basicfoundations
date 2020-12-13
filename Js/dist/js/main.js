@@ -84,7 +84,7 @@ interestRate = 1;
   // console.log(toDos[2].isCompleted);
 
   // JSON - is a data format it is used in full stack developer and using API sending data into server, sending and receive in json format
-  // -similar to object litera ls
+  // -similar to object literals
 
   const todoJSON = JSON.stringify(toDos);
   // console.log((todoJSON));
@@ -111,6 +111,7 @@ interestRate = 1;
   // console.log(`For loop number: ${i}`);
   // console.log(toDos[i].text);
  } 
+
  // BEST WAY THROUGH ARRAYS
  for(let todo of toDos){
   // console.log(todo.id);
@@ -134,19 +135,19 @@ interestRate = 1;
  }).map(function(todo){
   return todo.text;
  })
- console.log(todoCompleted);
+ // console.log(todoCompleted);
 
  // CONDITIONALS (IF STATEMENT)
 
  const x = 10;
  if (x === 10){
-  console.log('x is 10');
+  // console.log('x is 10');
  }
  else if(x > 10) {
-console.log('x is greater than 10');
+// console.log('x is greater than 10');
  }
    else {
-    console.log(`x is less than 10`);
+    // console.log(`x is less than 10`);
    }
 
  const c = 3;
@@ -162,51 +163,101 @@ console.log('x is greater than 10');
   const g = 9;
   const color = g > 10 ? 'red' : 'blue';
 
-  console.log(color);
+  // console.log(color);
 
   // Switch
   const colors = 'green';
   switch(colors){
    case 'red':
-    console.log(`color is red`);
+    // console.log(`color is red`);
     break;
    case 'blue':
-    console.log(`color is blue`);
+    // console.log(`color is blue`);
     break;
    default:
-    console.log(`color is neither red or blue`);
+    // console.log(`color is neither red or blue`);
     break;
   }
 
  // FUNCTION 
  function addNums(num1, num2){
-  console.log(num1 + num2);
+  // console.log(num1 + num2);
  }
  addNums(5,4);
 
  function addNums1(num1, num2){
   return(num1 + num2);
  }
- console.log(addNums1(1,6));;
+ // console.log(addNums1(1,6));
 
  // ARROW FUNCTIONS
  const addNums2 = (num1 = 1, num2 = 1) =>{
-  return num1 + num2;
- }
- console.log(addNums2(5,5));
+  return num1 + num2;}
+ // console.log(addNums2(5,5));
 
  const addNums3 = (num1 = 1, num2 = 1) =>
   console.log(num1 + num2);
- 
  (addNums3(5,5));
 
  const addNums4 = (num1 = 1, num2 = 1) =>
   num1 + num2;
+ // console.log(addNums4(5,5));
  
- console.log(addNums4(5,5));
- 
+ // GOOD FOR ONE CONSTANT VARIABLE
  const addNums5 = num1 => num1 + 5;
- console.log(addNums5(4));
+ // console.log(addNums5(4));
 
  // applying forEach arrow function
- toDos.forEach((todo)=> console.log(todo))
+ // toDos.forEach((todo)=> console.log(todo))
+
+ // THIS 
+
+ // CONSTRUCTIVE FUNCTION
+
+  //  CONSTRUCTIVE FUNCTION W/ PROTOTYPES
+  //  CONSTRUCTIVE FUNCTION W/ ES6 CLASSES
+
+  // CONSTRUCTOR FUNCTION
+
+  function Person(firstName, lastName, dob){
+   this.firstName = firstName;
+   this.lastName = lastName;
+   this.dob = new Date(dob);
+   this.getBirthYear = function(){
+    
+   }
+   this.getFullName = function(){
+    return `${this.firstName} ${this.lastName}`;
+   }
+  }
+
+  Person.prototype.getBirthYear = function(){
+   return this.dob.getFullYear();
+  }
+  Person.prototype.getFullName = function(){
+   return `${this.firstName} ${this.lastName}`;
+  }
+  // INSTANTIATE OBJECT
+  const person1 = new Person('John', 'Doe', '4-3-1980');
+  const person2 = new Person('Mary', 'Smith', '3-6-1980');
+
+  // console.log(person2.dob.getFullYear());
+  // console.log(person1.getBirthYear());
+  // console.log(person1.getFullName());
+  // console.log(person2.getFullName());
+  // console.log(person1);
+
+  // ES6 CLASS CONSTRUCTIVE FUNCTION (SINTACTIC SUGAR)
+  class Person1 {
+   constructor(firstName, lastName, dob){
+   this.firstName = firstName;
+   this.lastName = lastName;
+   this.dob = new Date(dob);
+   }
+   getBirthYear(){
+    return this.dob.getFullYear();
+   }
+   getFullName(){
+    return `${this.firstName} ${this.lastName}`;
+   }
+  }
